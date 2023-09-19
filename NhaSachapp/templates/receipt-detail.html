@@ -1,0 +1,31 @@
+{% extends 'layout/base.html' %}
+
+{%block title%} Bán hàng {% endblock %}
+
+{%block content%}
+ <h1 class="text-danger text-center">Chi tiết hóa đơn </h1>
+
+
+<table class="table">
+        <tr>
+            <th>Tên người mua</th>
+            <th>Ngày tạo</th>
+        </tr>
+        <tr>
+            <th>{{user.name}}</th>
+            <th>{{receipt.created_date}}</th>
+        </tr>
+       <tr>
+            <th>Sách</th>
+            <th>Thể loại</th>
+            <th>Số lượng</th>
+           <th>Đơn giá</th>
+       </tr>
+           <tr>
+            <th></th>
+            <th>{{detail}}</th>
+            <th>{{detail.quantity}}</th>
+           <th>{{detail.unit_price}}</th>
+       </tr>
+</table>
+{%endblock%}

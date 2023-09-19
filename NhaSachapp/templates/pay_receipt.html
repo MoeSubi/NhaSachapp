@@ -1,0 +1,89 @@
+{% extends 'layout/base.html' %}
+
+{%block title%} Giỏ hàng {% endblock %}
+
+{%block content%}
+    <h1 class="text-danger text-center">Đặt sách</h1>
+
+{% if 'cart' in session and session['cart'] %}
+    <table class="table">
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+        </tr>
+        {%for c in session['cart'].values() %}
+        <tr id="product{{ c.id }}">
+            <th>{{c.id}}</th>
+            <th>{{c.name}}</th>
+            <th>{{c.price}}</th>
+            <th>{{c.quantity}}</th>
+        </tr>
+        {%endfor%}
+    </table>
+
+    <div class="alert alert-info">
+        <h5>Tong san pham: <span class="cart-counter"> {{cart_stats.total_quantity}} </span></h5>
+        <h5>Tong tien: <span id="total-amount"> {{ "{:,.1f}".format(stats.total_amount)}} </span> VND </h5>
+    </div>
+
+    <div>
+        <div class="pretty p-default p-round p-thick">
+            <input type="radio" checked="true" name="payment methods" class="tablink" onclick="openCity('London', this, '#52734D')" id="defaultOpen"/>
+            <div class="state p-success">
+                <label>Thanh toán tại quầy</label>
+            </div>
+        </div>
+        <div class="pretty p-default p-round p-thick">
+            <input type="radio" name="payment methods" class="tablink" onclick="openCity('Paris', this, '#52734D')"/>
+            <div class="state p-success">
+                <label>Thanh toán online</label>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+<div>
+    <div id="London" class="tabcontent">
+        <h1>Thanh toán tại quầy</h1>
+        <p>
+            <div class="alert alert-info">
+                <h5>Lưu ý:</h5>
+                <h5>Bạn sẽ phải thanh toán trong:<span> 48 giờ </span></h5>
+            </div>
+        </p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <h1>Thanh toán online</h1>
+        <p>
+            <form>
+                <label for="phoneNum">Số điện thoại:</label><br>
+                <input type="text" id="phoneNum" name="fname"><br>
+                <label for="address">Địa chỉ:</label><br>
+                <input type="text" id="address" name="lname"><br>
+                <label for="payMethod">Phương thức thanh toán:</label><br>
+                <input type="text" id="payMethod" name="lname">
+            </form>
+        </p>
+    </div>
+</div>
+
+<br><br>
+
+    <div class="buttons">
+        <input type="button" value="Xác nhận"  class="btn btn-success" onclick="pay()">
+    </div>
+
+    <script>
+        // Get the element with id="defaultOpen" and click on it
+        window.onload = function() {
+           document.getElementById("defaultOpen").click(defaultOpen);
+        }
+    </script>
+{%else%}
+    <p class="text-center text-danger">Không có sản phẩm trong giỏ</p>
+{%endif%}
+{%endblock%}

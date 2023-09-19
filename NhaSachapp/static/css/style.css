@@ -1,0 +1,107 @@
+body{
+    background-color:#FEFFDE;
+}
+.bg-header{
+background-color:#52734D !important;
+
+}
+
+.padding-left{
+    padding-left: 60px !important;
+}
+.clor{
+    color:white !important
+}
+
+.menu{
+    position: relative;
+}
+.sub{
+    list-style-type:none
+
+
+}
+.sub>a{
+cursor: pointer!important;
+
+ }
+.padding{
+    padding: 10px !important;
+}
+
+.sub>ul{
+    display:none!important;
+    padding: 0 !important;
+    position: absolute !important;
+    background-color : #52734D!important;
+    list-style-type:none;
+    z-index: 100!important;
+}
+
+.sub>ul>li>a{
+    color: #FEFFDE !important
+}
+.sub:hover>ul{
+     display:block!important;
+}
+
+.book{
+    margin : 10px 15px !important;
+    padding: 5px !important
+}
+
+.navbar-nav > li > a{
+    margin: 0px 10px !important;
+    color: #FEFFDE !important;
+}
+
+.buttons  a{
+    margin: 0px 6px !important;
+}
+
+.h1{
+    padding : 40px 0px;
+}
+
+.bg-footer{
+    background: #52734D !important;
+}
+
+.jumbotron{
+    margin-bottom: 0px !important;
+    margin-top:20px !important;
+}
+.jumbotron p{
+    color :#DDFFBC;
+}
+
+//PayReceipt//
+/* Style the tab buttons */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: left;
+}
+
+/* Style each tab content individually */
+#London {background-color:#52734D;}
+#Paris {background-color:#52734D;}

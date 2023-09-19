@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+
+{%block title%} Bán hàng {% endblock %}
+
+{%block content%}
+ <h1 class="text-danger text-center">Hóa đơn </h1>
+
+
+<table class="table">
+        <tr>
+            <th>Mã hóa đơn</th>
+            <th>Ngày tạo</th>
+            <th>Tên người mua</th>
+
+        </tr>
+
+        {%for c in receipts %}
+
+        <tr>
+            <th>{{c.id}}</th>
+            <th>{{c.created_date}}</th>
+            <th>{{users[c.id-1]}}</th>
+            <th> <a href="{{url_for('receipt_detail',user_id =c.user_id,receipt_id =c.id)}}" class="btn btn-primary">Xem hóa đơn</a></th>
+        </tr>
+        {%endfor%}
+</table>
+{%endblock%}

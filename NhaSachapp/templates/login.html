@@ -1,0 +1,32 @@
+{%extends 'layout/base.html'%}
+
+
+{%block title %}Đăng nhập{%endblock%}
+
+{%block content%}
+<h1 class="test-cemter text-danger">Đăng nhập</h1>
+
+{% if err_msg %}
+<div class="alert alert-danger">
+    <H4>{{err_msg}}</H4>
+     <H4>{{username}}</H4>
+
+</div>
+
+{%endif%}
+<form method="post"  >
+
+
+    <div class="form-group">
+        <label for="username">Nhập username</label>
+        <input type="text" class="form-control" id ='username' name="username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Nhập mật khẩu</label>
+        <input type="text" class="form-control" id ='password' name="password" required>
+    </div>
+
+    <input type="submit" value="Đăng nhập"class="btn btn-danger">
+</form>
+
+{%endblock%}
